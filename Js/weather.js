@@ -165,7 +165,7 @@ function getWeather_week(response) {
         mess[2].innerHTML = result[index].winp;
         var span = mess[3].getElementsByTagName('span');
         span[0].innerHTML = result[index].days;
-        Label[i] = result[index].week+'\n'+result[index].days;
+        Label[i] = result[index].week;
         span[1].innerHTML = result[index].week;
         High[i] = result[index].temp_high;
         Low[i] = result[index].temp_low;
