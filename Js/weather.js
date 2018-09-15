@@ -45,10 +45,17 @@ var collection=[
 map.centerAndZoom(new BMap.Point(120.19, 30.26), 10);  // 初始化地图,设置中心点坐标和地图级别
 var myCity = new BMap.LocalCity();
 function myFun(result){
-	cityName = result.name;
-    map.setCenter(cityName);
-    map.setCurrentCity(cityName);          // 设置地图显示的城市 此项是必须设置的
-    map.clearOverlays();
+    if(result){
+        cityName = result.name.replace('市', '');
+        map.setCenter(cityName);
+        map.setCurrentCity(cityName);          // 设置地图显示的城市 此项是必须设置的
+        map.clearOverlays();
+        alert("城市定位在 "+cityName)
+    }else{
+        alert("获取城市失败")
+    }
+
+
 }
 myCity.get(myFun);
 map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
