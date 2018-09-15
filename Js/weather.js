@@ -44,9 +44,8 @@ var collection=[
 ];
 map.centerAndZoom(new BMap.Point(120.19, 30.26), 10);  // 初始化地图,设置中心点坐标和地图级别
 var myCity = new BMap.LocalCity();
-myCity.get(myFun); //异步获得当前城市
 function myFun(result){
-	cityName = result.name.replace('市', '');
+	cityName = result.name;
     map.setCenter(cityName);
     map.setCurrentCity(cityName);          // 设置地图显示的城市 此项是必须设置的
     map.clearOverlays();
@@ -54,6 +53,8 @@ function myFun(result){
 myCity.get(myFun);
 map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
 map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+
 function getNowFormatDate() {
     var date = new Date();
     var seperator1 = "-";
@@ -93,6 +94,8 @@ setTimeout(function(){
     get_data(urls[2]);  //jsonp跨域请求
 
 }, 1000);
+
+
 
 function findbetween(Label,s){
     var index =10000;
